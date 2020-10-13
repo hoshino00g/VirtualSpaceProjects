@@ -37,14 +37,20 @@ public class DataSending : MonoBehaviour
         StartCoroutine(Connection(name,age));
     }
 
+
     public IEnumerator Connection(string name,string age)
     {
         WWWForm form = new WWWForm();
         form.AddField("name", name);
         form.AddField("age", age);
-        UnityWebRequest request = UnityWebRequest.Post("http://127.0.0.1:3000", form);
-
-
+        string url_src = "";
+#if UNITY_EDITOR
+        url_src = "http://127.0.0.1:3000";
+#endif
+#if UNITY_WEBGL
+        url_src = "https://virtual-space-projects.herokuapp.com";
+#endif
+        UnityWebRequest request = UnityWebRequest.Post(url_src, form);
         yield return request.Send();
 
         if (request.isHttpError)
@@ -64,4 +70,5 @@ public class DataSending : MonoBehaviour
         }
 
     }
+
 }

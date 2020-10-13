@@ -17,7 +17,8 @@ public class DataShowing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
     }
 
     // Update is called once per frame
@@ -37,13 +38,21 @@ public class DataShowing : MonoBehaviour
     private IEnumerator Connection(int num)
     {
         WWWForm form = new WWWForm();
-        UnityWebRequest request = UnityWebRequest.Get("http://127.0.0.1:3000/show_uni/"+num.ToString());
+        string url_src = "";
+#if UNITY_EDITOR
+        url_src = "http://127.0.0.1:3000/show_uni/";
+#endif
 
+#if UNITY_WEBGL
+        url_src = "https://virtual-space-projects.herokuapp.com/show_uni/";
+#endif
+        UnityWebRequest request = UnityWebRequest.Get(url_src+num.ToString());
         yield return request.Send();
 
         if (request.isHttpError)
         {
             print("エラー" + request.error);
+            print(url_src);
         }
         else
         {

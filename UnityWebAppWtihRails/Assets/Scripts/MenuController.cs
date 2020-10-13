@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -21,11 +22,13 @@ public class MenuController : MonoBehaviour
 
     public void OnMenuChange(){
         if(UserCreateMenu.activeSelf){
+            UserCreateMenu.SetActive(false);
             FileUploadMenu.SetActive(true);
-            MenuChangeBtnTxt.GetComponent<Text>().text = "作品投稿へ"
+            MenuChangeBtnTxt.GetComponent<Text>().text = "ユーザー作成へ";
         }else{
+            UserCreateMenu.SetActive(true);
             FileUploadMenu.SetActive(false);
-
+            MenuChangeBtnTxt.GetComponent<Text>().text = "作品投稿へ";
         }
     }
 
