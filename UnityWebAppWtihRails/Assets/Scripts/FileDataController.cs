@@ -21,7 +21,7 @@ public class FileDataController : MonoBehaviour
     private Vector3 screenToWorldPointPosition;
     private bool created = false;
 
-     #if UNITY_WEBGL && !UNITY_EDITOR
+    #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")]
     private static extern void FileImporterCaptureClick();
     #endif
@@ -44,9 +44,17 @@ public class FileDataController : MonoBehaviour
 
         Debug.Log("created is" + created); 
 
+        #if UNITY_WEBGL  && UNITY_EDITOR
+        if (Input.GetMouseButtonDown(1)){
+            created = false;
+        }
+        #endif
+
+        #if UNITY_WEBGL  && !UNITY_EDITOR
         if (Input.GetMouseButtonDown(0)){
             created = false;
         }
+        #endif
     }
 
     public void OnFileSelecting()

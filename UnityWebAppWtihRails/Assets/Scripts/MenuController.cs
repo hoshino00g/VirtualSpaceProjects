@@ -24,11 +24,11 @@ public class MenuController : MonoBehaviour
         if(UserCreateMenu.activeSelf){
             UserCreateMenu.SetActive(false);
             FileUploadMenu.SetActive(true);
-            MenuChangeBtnTxt.GetComponent<Text>().text = "ユーザー作成へ";
+            MenuChangeBtnTxt.GetComponent<Text>().text = "To user creation";
         }else{
             UserCreateMenu.SetActive(true);
             FileUploadMenu.SetActive(false);
-            MenuChangeBtnTxt.GetComponent<Text>().text = "作品投稿へ";
+            MenuChangeBtnTxt.GetComponent<Text>().text = "To work submission";
         }
     }
 

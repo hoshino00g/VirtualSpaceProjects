@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :users #一括定義しているここで
-  post '/', to: 'users#create_uni'
+  post '/users_uni', to: 'users#create_uni'
   get '/show_uni/:id', to:'users#show_uni'
+
+  post '/rooms', to: 'rooms#create'
+
   root to:'users#index'
   # match '*all', to: 'game#index', via: [:get]
   # root 'game#index'

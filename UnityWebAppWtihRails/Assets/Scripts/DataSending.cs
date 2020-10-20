@@ -44,14 +44,16 @@ public class DataSending : MonoBehaviour
         form.AddField("name", name);
         form.AddField("age", age);
         string url_src = "";
-#if UNITY_EDITOR
-        url_src = "http://127.0.0.1:3000";
+#if UNITY_WEBGL  && UNITY_EDITOR
+        url_src = "http://127.0.0.1:3000/users_uni";
 #endif
-#if UNITY_WEBGL
-        url_src = "https://virtual-space-projects.herokuapp.com";
+#if UNITY_WEBGL  && !UNITY_EDITOR
+        url_src = "https://virtual-space-projects.herokuapp.com/users_uni";
 #endif
         UnityWebRequest request = UnityWebRequest.Post(url_src, form);
         yield return request.Send();
+
+        Debug.Log(url_src + "URL");
 
         if (request.isHttpError)
         {
