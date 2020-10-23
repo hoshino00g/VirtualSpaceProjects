@@ -39,11 +39,11 @@ public class DataShowing : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         string url_src = "";
-#if UNITY_EDITOR
+#if UNITY_WEBGL  && UNITY_EDITOR
         url_src = "http://127.0.0.1:3000/show_uni/";
 #endif
 
-#if UNITY_WEBGL
+#if UNITY_WEBGL  && !UNITY_EDITOR
         url_src = "https://virtual-space-projects.herokuapp.com/show_uni/";
 #endif
         UnityWebRequest request = UnityWebRequest.Get(url_src+num.ToString());

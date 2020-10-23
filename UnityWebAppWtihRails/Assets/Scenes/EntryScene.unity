@@ -233,7 +233,7 @@ RectTransform:
   m_LocalScale: {x: 2.4003, y: 2.73013, z: 1}
   m_Children: []
   m_Father: {fileID: 584209789}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -422,79 +422,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75562433}
-  m_CullTransparentMesh: 0
---- !u!1 &148209321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 148209322}
-  - component: {fileID: 148209324}
-  - component: {fileID: 148209323}
-  m_Layer: 5
-  m_Name: FloorJpgURLImg
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &148209322
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148209321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8091562, y: 0.70387065, z: 1}
-  m_Children: []
-  m_Father: {fileID: 584209789}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: -124}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &148209323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148209321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.91570157, g: 0.98039216, b: 0.63529414, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &148209324
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148209321}
   m_CullTransparentMesh: 0
 --- !u!1 &212181959
 GameObject:
@@ -718,6 +645,7 @@ MonoBehaviour:
   roomnameField: {fileID: 2058562067}
   passwordField: {fileID: 704532195}
   imgurlField: {fileID: 1582892415}
+  errorMessage: {fileID: 1198421606}
 --- !u!1 &230575347
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +874,7 @@ GameObject:
   - component: {fileID: 310088410}
   - component: {fileID: 310088409}
   - component: {fileID: 310088408}
+  - component: {fileID: 310088411}
   m_Layer: 5
   m_Name: ChangeButton
   m_TagString: Untagged
@@ -1015,7 +944,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 310088409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 310088411}
+        m_MethodName: OnCreateNew
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &310088409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,6 +992,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310088406}
   m_CullTransparentMesh: 0
+--- !u!114 &310088411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310088406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce375e0de59b464db6c4e68c45d9f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existRoom: {fileID: 584209785}
+  newRoom: {fileID: 772612481}
 --- !u!1 &351977829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,8 +1503,6 @@ RectTransform:
   - {fileID: 1634624077}
   - {fileID: 1509956439}
   - {fileID: 1104225173}
-  - {fileID: 148209322}
-  - {fileID: 1999476942}
   - {fileID: 1508677671}
   - {fileID: 71558846}
   m_Father: {fileID: 0}
@@ -1646,6 +1598,7 @@ GameObject:
   - component: {fileID: 685144469}
   - component: {fileID: 685144468}
   - component: {fileID: 685144467}
+  - component: {fileID: 685144470}
   m_Layer: 5
   m_Name: ChangeButton
   m_TagString: Untagged
@@ -1715,7 +1668,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 685144468}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 685144470}
+        m_MethodName: OnVisitExisting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &685144468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1752,6 +1716,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685144465}
   m_CullTransparentMesh: 0
+--- !u!114 &685144470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685144465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce375e0de59b464db6c4e68c45d9f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  existRoom: {fileID: 584209785}
+  newRoom: {fileID: 772612481}
 --- !u!1 &702602968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2368,7 +2346,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Password\n(Up to 8 single-byte alphanumeric \ncharacters)\n"
+  m_Text: "Password\n(8 single-byte alphanumeric \ncharacters)\n"
 --- !u!222 &913275300
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2621,7 +2599,7 @@ RectTransform:
   m_GameObject: {fileID: 1104225172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0828124, y: 2.7288425, z: 1}
+  m_LocalScale: {x: 2.287333, y: 1.9783835, z: 1}
   m_Children:
   - {fileID: 2019629784}
   m_Father: {fileID: 584209789}
@@ -2629,7 +2607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -302, y: -124}
+  m_AnchoredPosition: {x: 1, y: -120}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1104225174
@@ -2856,7 +2834,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Up to 8 single-byte \ncharacters"
+  m_Text: "8 single-byte \ncharacters"
 --- !u!222 &1198421609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2933,7 +2911,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Visit Existing Room
+  m_Text: Create New Room
 --- !u!222 &1264457590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3049,7 +3027,7 @@ RectTransform:
   m_LocalScale: {x: 2.4003, y: 2.73013, z: 1}
   m_Children: []
   m_Father: {fileID: 584209789}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3127,14 +3105,14 @@ RectTransform:
   m_GameObject: {fileID: 1509956438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.865748, y: 3.039812, z: 1}
+  m_LocalScale: {x: 2.4717364, y: 2.7795281, z: 1}
   m_Children: []
   m_Father: {fileID: 584209789}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -232, y: 245}
+  m_AnchoredPosition: {x: -272, y: 262}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509956440
@@ -3168,9 +3146,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Create
+  m_Text: 'Visit
 
-    New
+    Existing
 
     Room'
 --- !u!222 &1509956441
@@ -3538,7 +3516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Create Room
+  m_Text: 'Create and Enter Room
 
 '
 --- !u!222 &1722743524
@@ -3703,83 +3681,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944025428}
   m_CullTransparentMesh: 0
---- !u!1 &1999476941
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1999476942}
-  - component: {fileID: 1999476944}
-  - component: {fileID: 1999476943}
-  m_Layer: 5
-  m_Name: FloorJpgTxt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1999476942
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999476941}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4003, y: 2.73013, z: 1}
-  m_Children: []
-  m_Father: {fileID: 584209789}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30, y: -123}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1999476943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999476941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.5647059}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Create Floor Image
---- !u!222 &1999476944
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999476941}
-  m_CullTransparentMesh: 0
 --- !u!1 &2016863322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +3785,7 @@ RectTransform:
   m_GameObject: {fileID: 2019629783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1853125, y: 1.0875, z: 1}
+  m_LocalScale: {x: 1.013029, y: 1.0875, z: 1}
   m_Children: []
   m_Father: {fileID: 1104225173}
   m_RootOrder: 0
@@ -3925,7 +3826,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Open File
+  m_Text: Visit Room
 --- !u!222 &2019629786
 CanvasRenderer:
   m_ObjectHideFlags: 0

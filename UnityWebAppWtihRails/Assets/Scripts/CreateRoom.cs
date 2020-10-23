@@ -10,9 +10,15 @@ public class CreateRoom : MonoBehaviour
     public GameObject roomnameField;
     public GameObject passwordField;
     public GameObject imgurlField;
+
+    public GameObject errorMessage;
+
     string rntxt = null;
     string pwtxt = null;
     string iutxt = null;
+
+    public static string roomName;
+    public static string imageUrl;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +39,7 @@ public class CreateRoom : MonoBehaviour
        if(rntxt == "" || pwtxt == "" || iutxt == ""){
            Debug.Log("NININI");
            Debug.Log(rntxt + "と"  + pwtxt +  "と" + iutxt);
+           errorMessage.SetActive(true);
        }else{
            Debug.Log("OKKKKKKKKKKKKKKKKKKK");
            Debug.Log(rntxt + "と"  + pwtxt +  "と" + iutxt);
@@ -66,15 +73,20 @@ public class CreateRoom : MonoBehaviour
         {
             if (request.responseCode == 204)
             {
-                Debug.Log("せいこう！");
+                Debug.Log("せいこう！");//ここでLoadSceneをしたあげる
+                roomName = rntxt;
+                imageUrl = iutxt;
+                RoomSceneController.visit_create = 0;
+                SceneManager.LoadScene("RoomScene");
+
             }
             else
             {
                 Debug.Log("しっぱい…:" + request.responseCode);
             }
-            SceneManager.LoadScene("RoomScene");
 
         }
 
     }
+
 }
