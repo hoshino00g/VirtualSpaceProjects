@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using UnityEngine.UI;
 using System.IO;
 using System.Runtime.InteropServices;
+using System;
 
 public class OpenFloorImg : MonoBehaviour
 {
@@ -49,10 +50,15 @@ public class OpenFloorImg : MonoBehaviour
         if (string.IsNullOrEmpty(file_path)) {
             return;
         }
+
+        StreamReader sr = new StreamReader(file_path, System.Text.Encoding.GetEncoding("Shift_JIS"));
+        string str = sr.ReadToEnd().ToString();
+
         filepath_txt.GetComponent<Text>().text = file_path;
         filepath_txt.GetComponent<Text>().fontSize = 8;
         OnFileDataCreate();
         Debug.Log(file_path);
+
         #endif
 
     }

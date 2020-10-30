@@ -20,7 +20,6 @@ var FileImporterPlugin = {
       document.getElementById('FileImporter').click();
       document.getElementById('#canvas').removeEventListener('click', OpenFileDialog);
     };
-
     document.getElementById('#canvas').addEventListener('click', OpenFileDialog, false);
   }
 

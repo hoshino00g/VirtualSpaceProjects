@@ -42,10 +42,10 @@ public class FileDataController : MonoBehaviour
         obj_inst.transform.position = screenToWorldPointPosition;
         }
 
-        Debug.Log("created is" + created); 
+        // Debug.Log("created is" + created); 
 
         #if UNITY_WEBGL  && UNITY_EDITOR
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1)){//右クリック
             created = false;
         }
         #endif
@@ -118,9 +118,6 @@ public class FileDataController : MonoBehaviour
 
         // //Texture2DをSpriteに変換
         // Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), Vector2.zero);
-
-
-
     }
 }
 
